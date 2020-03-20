@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.sqlite3
+__pycache__/
+media/
+.vscode
+
+# Для каталога с ВО на VDS
+vk/
+
+uwsgi_params
+vk.conf
