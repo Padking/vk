@@ -5,7 +5,7 @@ import time
 
 
 def get_info(code):
-    request_link = f"https://oauth.vk.com/access_token?client_id=7365067&client_secret=ASWRHCQo7G76Klq1r019&redirect_uri=44ec43aa-2e14-4ff1-ada3-d1b2e4418b0e.pub.cloud.scaleway.com:8000/dj_vk_app/final/&code={code}"
+    request_link = f"https://oauth.vk.com/access_token?client_id=7365067&client_secret=ASWRHCQo7G76Klq1r019&redirect_uri=44ec43aa-2e14-4ff1-ada3-d1b2e4418b0e.pub.cloud.scaleway.com:8000/dj_vk_app/end/&code={code}"
     try:
         r = requests.get(url=request_link) 
     except:
@@ -37,7 +37,7 @@ def create_text_about_friends(ids, num, text, key):
     :param num: количество пользователей
     """
     if num == 0: # друзей нет
-        text += "Друзей в списке контактов нет<br>"
+        text = "Друзей в списке контактов нет<br>"
         return text
     else:
         tmp_lines = ''

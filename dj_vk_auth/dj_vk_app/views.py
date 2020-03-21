@@ -35,15 +35,16 @@ def login(
     """ Осуществляет перенаправление на сервер ВКонтакте для предоставления прав доступа к информации пользователя"""
 
     try:
-        return HttpResponseRedirect(f"https://oauth.vk.com/authorize?client_id={CLIENT_ID}&scope=friends,offline&redirect_uri=http://{DOMAIN}/{DJ_APP_NAME}/final/&response_type=code")
+        return HttpResponseRedirect(f"https://oauth.vk.com/authorize?client_id={CLIENT_ID}&scope=friends,offline&redirect_uri=http://{DOMAIN}/{DJ_APP_NAME}/end/&response_type=code")
     except:
         return HttpResponse("<h1 style='color:yellow'> Сервер ВКонтакте временно недоступен. Повторите попытку позднее. </h1>")
 
 
-def final(request):
+def end(request):
     """ Завершает авторизацию, выводит информацию об авторизованном пользователе и его друзьях"""
     url_for_code_search = request.build_absolute_uri()
-    code = url_for_code_search[94:] # параметр для авторизации vk-приложения
+    start = url_for_code_search.find('code=') + len('code=')
+    code = url_for_code_search[start:] # параметр для авторизации vk-приложения
 
     data = utils.get_info(code)
     access_token, user_id = data['access_token'], data['user_id']

@@ -10,3 +10,4 @@ vk/
 
 uwsgi_params
 vk.conf
+vk.ini
