@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Выходная информация</title>
+</head>
+<body>
+    <h3>
+        {{ headline }}
+    </h3>
+    <h4>
+        {{ subheadline }}
+    </h4>
+    <ul>
+        {% for fir, sec in strings %}
+        <li> <a href="https://vk.com/id{{ fir }}">{{ sec }}</a></li>
+        {% endfor %}
+    </ul>
+    <form>
+        <input type="button" value="Выйти" onclick="javascript:window.location='http://44ec43aa-2e14-4ff1-ada3-d1b2e4418b0e.pub.cloud.scaleway.com:8000/dj_vk_app/logout_user/'"/>
+    </form>
+</body>
+</html>
