@@ -12,6 +12,7 @@ static/
 vk/
 
 # Остальные файлы
-uwsgi_params
-vk.conf
-vk.ini
+# uwsgi_params
+# vk.conf
+# vk.ini
+vk.sock
