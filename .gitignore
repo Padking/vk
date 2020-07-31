@@ -1,13 +1,17 @@
-# Byte-compiled / optimized / DLL files
+.vscode/
+
 *.pyc
-*.sqlite3
 __pycache__/
+
+db.sqlite3
+
 media/
-.vscode
+static/
 
 # Для каталога с ВО на VDS
 vk/
 
+# Остальные файлы
 uwsgi_params
 vk.conf
 vk.ini

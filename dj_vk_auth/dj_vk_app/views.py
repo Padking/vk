@@ -6,17 +6,14 @@ from django.shortcuts import render
 
 from . import utils
 
-
-
 CLIENT_ID = "7365067"
 CLIEND_SECRET = "ASWRHCQo7G76Klq1r019"
 DJ_APP_NAME = "dj_vk_app"
 DOMAIN = "44ec43aa-2e14-4ff1-ada3-d1b2e4418b0e.pub.cloud.scaleway.com:8000"
 
 
-
 def index(
-    request, 
+    request,
     domain=DOMAIN,
     dj_app_name=DJ_APP_NAME):
 
@@ -24,7 +21,7 @@ def index(
 
     if 'testdj' not in request.COOKIES:
         return render(request, "dj_vk_app/home.html")
-    else: # пользователь уже зарегистрирован
+    else:  # пользователь уже зарегистрирован
         return HttpResponseRedirect(f"http://{DOMAIN}/{DJ_APP_NAME}/login/")
 
 
@@ -37,7 +34,7 @@ def login(
     """ Осуществляет перенаправление на сервер ВКонтакте для предоставления прав доступа к информации пользователя"""
 
     try:
-        return HttpResponseRedirect(f"https://oauth.vk.com/authorize?client_id={CLIENT_ID}&scope=friends,offline&redirect_uri=http://{DOMAIN}/{DJ_APP_NAME}/prend/&response_type=code") # Запрос для открытия диалога авторизации согласно документации ВКонтакте
+        return HttpResponseRedirect(f"https://oauth.vk.com/authorize?client_id={CLIENT_ID}&scope=friends,offline&redirect_uri=http://{DOMAIN}/{DJ_APP_NAME}/prend/&response_type=code")  # Запрос для открытия диалога авторизации согласно документации ВКонтакте
     except:
         return HttpResponse("<h1 style='color:yellow'> Сервер ВКонтакте временно недоступен. Повторите попытку позднее. </h1>")
 
